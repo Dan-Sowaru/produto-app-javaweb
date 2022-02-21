@@ -5,7 +5,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Cadastro de Usuários</title>
+        <title>Cadastro de Produtos</title>
     </head>
     <body>
         <fieldset>
