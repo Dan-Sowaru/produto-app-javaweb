@@ -7,10 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 @WebServlet("/controladora")
 public class Controladora extends HttpServlet {
@@ -21,17 +18,6 @@ public class Controladora extends HttpServlet {
 
         String acao = requisicao.getParameter("acao");
         System.out.println("ENTROU NA SERVLET CONTROLADORA COM A ACAO: " + acao);
-
-        HttpSession session = requisicao.getSession();
-        Object usuario_logado = session.getAttribute("usuario logado");
-
-        List<String> rotasProtegidas = Arrays.asList("produto-form", "produto-form", "listar-produto", "remover-produto", "alterar-produtos");
-        boolean ehUmaRotaProtegida = rotasProtegidas.contains(acao);
-
-        if (ehUmaRotaProtegida && usuario_logado == null) {
-            resposta.sendRedirect("/produto-app/login-form.jsp");
-            return;
-        }
 
 
         switch (acao) {
